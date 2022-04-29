@@ -1,0 +1,8 @@
+@import '../../../../../styles/to-rem.scss';
+@import '../../../../../styles/variables.scss';
+
+.btn-style{
+    background-color: $white;
+    height: toRem(40);
+    margin-right: 12px;
+}

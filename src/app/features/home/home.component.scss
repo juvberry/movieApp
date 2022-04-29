@@ -1,0 +1,64 @@
+@import '../../../styles/to-rem.scss';
+@import '../../../styles/variables.scss';
+
+.title-container{
+    padding: toRem(85) toRem(40) toRem(40) toRem(40); 
+
+    .title-style{
+        color: $white;
+        font-size: toRem(48);
+        max-width: toRem(779);
+        line-height: toRem(56);
+        margin: 0;
+    }
+}
+
+.filter-container{
+
+    .filter-title-style{
+        color: $white;
+        font-size: toRem(14);
+        margin: 0;
+    }
+
+    .btn-container{
+        width: 80%;
+    }
+}
+
+.results-container{
+    margin: toRem(116) toRem(24) 0 toRem(24);
+    gap: toRem(32);
+
+    .movie-container{
+        padding: 0;
+
+        .movie-title-style{
+            font-weight: 700;
+            margin: 0;
+            font-size: toRem(16);
+        }
+    }
+
+    .movie-date-style{
+        font-weight: 700;
+        margin: 0;
+        font-size: toRem(14);
+        color: #646464;
+    }
+
+    .img-container{
+        width: 100%;
+
+        .img-style{
+            width: inherit;
+        }
+    }
+    
+}
+
+.paginator-style{
+    color: $tertiary-color;
+    display: flex;
+    justify-content: center;
+}
