@@ -44,3 +44,20 @@ table {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.movie-info-container{
+	.spinner-container{
+		& .mat-progress-spinner, .mat-spinner{
+			width: 60px !important;
+			height: 60px !important;
+			& svg{
+				width: 60px !important;
+				height: 60px !important;
+				& circle{
+					stroke: #14FF00;
+					stroke-linecap: round;
+				}
+			}
+		}
+	}
+}

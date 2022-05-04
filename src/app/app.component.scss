@@ -2,12 +2,23 @@
 @import '../styles/variables.scss';
 
 .background-container{
-    background: linear-gradient(
-        $primary-color 0px,
-        $primary-color 450px,
-        $white 450px,
-        $white 100%
-    );
+    &.home{
+        background: linear-gradient(
+            $primary-color 0px,
+            $primary-color 450px,
+            $white 450px,
+            $white 100%
+        );
+    }
+
+    &.home-details{
+        background: linear-gradient(
+            $primary-color 0px,
+            $primary-color 600px,
+            $white 600px,
+            $white 100%
+        );
+    }
 
     width: 100%;
     min-height: 100vh;

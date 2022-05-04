@@ -7,6 +7,10 @@ import { BtnFilterComponent } from './components/btn/btn-filter/btn-filter.compo
 // Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { MatSliderModule } from '@angular/material/slider';
+
 
 import { HeaderModule } from './header/header.module';
 
@@ -17,7 +21,10 @@ const Components = [
 
 const MaterialModules = [
   MatButtonModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatSliderModule
 ]
 
 @NgModule({

@@ -1,0 +1,101 @@
+@import '../../../styles/to-rem.scss';
+@import '../../../styles/variables.scss';
+
+*{
+    line-height: toRem(24);
+}
+
+.img-style{
+    width: 98%;
+    border-radius: toRem(8);
+}
+
+.movie-info-container{
+    color: $white;
+
+    .title-style{
+        font-size: toRem(32);
+        line-height: toRem(38);
+        font-weight: 700;
+        margin-bottom: toRem(8);
+        letter-spacing: -0.005em;
+    }
+
+    .subtitle-style{
+        font-size: toRem(18);
+        font-weight: 400;
+        margin-bottom: toRem(16);
+    }
+    
+    .spinner-container{
+        
+        .percentage-container{
+            color: #14FF00;
+            transform: translateX(-42px);
+            p{
+                margin: 0;
+            }
+        }
+    }
+
+    .evaluation-container{
+        width: toRem(102);
+        word-wrap: break-word;
+        line-height: toRem(20);
+    }
+
+    .resume-title-style{
+        font-size: toRem(20);
+        margin: toRem(32) 0 toRem(8) 0;
+    }
+    .resume-style{
+        font-size: toRem(16);
+        color: #DDDDDD;
+        font-weight: 400;
+        letter-spacing: -0.005em;
+    }
+
+    .jobs-container{
+        width: toRem(174);
+        
+        p{
+            margin: 0;
+        }
+
+        .name-style{
+            font-size: toRem(16);
+            font-weight: 700;
+        }
+        
+        .job-style{
+            font-size: toRem(14);
+            line-height: toRem(20);
+        }
+    }
+    
+}
+
+.actors-container{
+    margin-top: toRem(74);
+
+    .cast-title-style{
+        font-size: toRem(28);
+        font-weight: 700;
+        line-height: toRem(32);
+        padding: 0;
+    }
+    .actor-img-style{
+        padding: toRem(8);
+    }
+
+    .actor-name-style{
+        font-size: toRem(18);
+        line-height: toRem(30);
+    }
+    .actor-role-style{
+        font-size: toRem(16);
+        font-weight: 400;
+        color: #131313;
+        margin: 0;
+    }
+}

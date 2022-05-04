@@ -1,6 +1,7 @@
 <div>
     <app-header></app-header>
 </div>
-<div class="background-container container-fluid">
+<div [ngClass]="{'home': isParent, 'home-details':!isParent}"
+    class="background-container container-fluid">
     <router-outlet></router-outlet>
 </div>

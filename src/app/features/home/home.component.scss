@@ -1,6 +1,18 @@
 @import '../../../styles/to-rem.scss';
 @import '../../../styles/variables.scss';
 
+.background-container{
+    background: linear-gradient(
+        $primary-color 0px,
+        $primary-color 450px,
+        $white 450px,
+        $white 100%
+    );
+
+    width: 100%;
+    min-height: 100vh;
+}
+
 .title-container{
     padding: toRem(85) toRem(40) toRem(40) toRem(40); 
 

@@ -6,11 +6,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      isParent: true
+    }
   },
   { 
     path: 'home-details',
-    loadChildren: () => import('./features/home-details/home-details.module').then(m => m.HomeDetailsModule)
+    loadChildren: () => import('./features/home-details/home-details.module').then(m => m.HomeDetailsModule),
+    data: {
+      isParent: false
+    }
   }
 ];
 
