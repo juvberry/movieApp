@@ -6,6 +6,9 @@
     height: toRem(56);
     background-color: $tertiary-color;
 
+    @media (max-width:425px) {
+        justify-content: center;
+    }
     .img-style{
         height: toRem(24);
         padding-left: toRem(24);

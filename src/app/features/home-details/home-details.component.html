@@ -1,19 +1,36 @@
 <div class="container-fluid">
-    <div class="row pt-5">
-        <div class="col-4">
-            <img class="img-style" src="../../../assets/img/deadpool.jpeg" alt="movie poster">
+    <div class="row pt-5 justify-content-center">
+        <div class="col-7 col-md-4">
+            <img class="img-style" [src]="url + movie?.poster_path" alt="movie poster">
         </div>
-        <div class="col d-flex-row movie-info-container">
+        <div [ngClass]="{'d-flex-column': isMobile, 'd-flex-row': !isMobile }" 
+             class="col mt-5 d-flex-row movie-info-container">
             <div>
                 <p class="title-style">
-                    Deadpool (2016)
+                    {{movie?.original_title}}
                 </p>
             </div>
-            <div>
+            <ng-container *ngIf="!isMobile">
                 <p class="subtitle-style">
-                    16 anos  • 11/02/2016 (BR)  •  Ação, Aventura, Comédia, Ficção científica • 1h 47m
+                    16 anos  • {{movie?.release_date}}  •  {{movie?.genres[0]?.name}}, {{movie?.genres[1]?.name}}, {{movie?.genres[2]?.name}}, {{movie?.genres[3]?.name}} • {{movie?.runtime}}
                 </p>
-            </div>
+            </ng-container>
+            <ng-container *ngIf="isMobile">
+                <ul class="subtitle-style">
+                    <li>
+                        16 anos
+                    </li>
+                    <li>
+                        {{movie?.release_date}}
+                    </li>
+                    <li>
+                        {{movie?.genres[0]?.name}}, {{movie?.genres[1]?.name}}, {{movie?.genres[2]?.name}}, {{movie?.genres[3]?.name}}
+                    </li>
+                    <li>
+                        {{movie?.runtime}}
+                    </li>
+                </ul>
+            </ng-container>
             <div class="d-flex align-items-center">
                 <div class="spinner-container d-flex align-items-center">
                     <mat-progress-spinner
@@ -36,35 +53,11 @@
             </div>
             <div>
                 <p class="resume-style">
-                    Baseado no anti-herói não convencional da Marvel Comics, Deadpool conta a história da origem do ex-agente das Forças Especiais que se tornou o mercenário Wade Wilson. Depois de ser submetido a um desonesto experimento que o deixa com poderes de cura acelerada, Wade adota o alter ego de Deadpool. Armado com suas novas habilidades e um senso de humor negro e distorcido, Deadpool persegue o homem que quase destruiu sua vida.
+                    {{movie?.overview}}
                 </p>
             </div>
-            <div class="d-flex flex-wrap credits-container">
+            <div class="d-flex flex-wrap mt-md-0 mt-5 credits-container">
                 <div class="jobs-container mb-4">
-                    <div>
-                        <p class="name-style">
-                            Rob Liefeld 
-                        </p>
-                    </div>
-                    <div>
-                        <p class="job-style">
-                            Characters
-                        </p>
-                    </div>
-                </div>
-                <div class="jobs-container">
-                    <div>
-                        <p class="name-style">
-                            Rob Liefeld 
-                        </p>
-                    </div>
-                    <div>
-                        <p class="job-style">
-                            Characters
-                        </p>
-                    </div>
-                </div>
-                <div class="jobs-container">
                     <div>
                         <p class="name-style">
                             Rob Liefeld 
@@ -116,7 +109,7 @@
         </div>
         <div class="row actors-container">
             <div class="col-12">
-                <p class="cast-title-style mb-4">
+                <p class="main-title-style mb-4">
                     Elenco original
                 </p>
             </div>
@@ -209,6 +202,113 @@
                         </mat-card-subtitle>
                     </div>
                 </mat-card>
+            </div>
+        </div>
+        <div class="row trailer-container mt-5">
+            <div class="col-12">
+                <p class="main-title-style">
+                    Trailer
+                </p>
+            </div>
+            <div class="col">
+                movie trailer
+            </div>
+        </div>
+        <div class="row recomendations-container mt-5">
+            <div class="col-12 mb-4">
+                <p class="main-title-style">
+                    Recomendações
+                </p>
+            </div>
+            <div class="col-6 col-md-2 d-flex flex-column reco-movie-info">
+                <div>
+                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                </div>
+                <div>
+                    <p class="reco-title-style">
+                        Clifford
+                    </p>
+                </div>
+                <div>
+                    <p class="reco-date-style">
+                        12 NOV 2021
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 reco-movie-info">
+                <div>
+                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                </div>
+                <div>
+                    <p class="reco-title-style">
+                        Clifford
+                    </p>
+                </div>
+                <div>
+                    <p class="reco-date-style">
+                        12 NOV 2021
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 reco-movie-info">
+                <div>
+                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                </div>
+                <div>
+                    <p class="reco-title-style">
+                        Clifford
+                    </p>
+                </div>
+                <div>
+                    <p class="reco-date-style">
+                        12 NOV 2021
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 reco-movie-info">
+                <div>
+                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                </div>
+                <div>
+                    <p class="reco-title-style">
+                        Clifford
+                    </p>
+                </div>
+                <div>
+                    <p class="reco-date-style">
+                        12 NOV 2021
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 reco-movie-info">
+                <div>
+                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                </div>
+                <div>
+                    <p class="reco-title-style">
+                        Clifford
+                    </p>
+                </div>
+                <div>
+                    <p class="reco-date-style">
+                        12 NOV 2021
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 col-md-2 reco-movie-info">
+                <div>
+                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                </div>
+                <div>
+                    <p class="reco-title-style">
+                        Clifford
+                    </p>
+                </div>
+                <div>
+                    <p class="reco-date-style">
+                        12 NOV 2021
+                    </p>
+                </div>
             </div>
         </div>
     </div>

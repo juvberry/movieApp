@@ -18,6 +18,15 @@
             $white 600px,
             $white 100%
         );
+
+        @media (max-width:425px) {
+            background: linear-gradient(
+            $primary-color 0px,
+            $primary-color 1160px,
+            $white 1160px,
+            $white 100%
+            );
+        }
     }
 
     width: 100%;

@@ -16,17 +16,33 @@
 .title-container{
     padding: toRem(85) toRem(40) toRem(40) toRem(40); 
 
+    @media (max-width:425px) {
+        padding: toRem(40) toRem(60) toRem(36) toRem(16);
+    }
+
     .title-style{
         color: $white;
         font-size: toRem(48);
         max-width: toRem(779);
         line-height: toRem(56);
         margin: 0;
+
+        @media (max-width:425px) {
+            font-size: toRem(24);
+            line-height: toRem(28);
+            padding: 0;
+            max-width: toRem(281);
+        }
     }
 }
 
 .filter-container{
 
+    .filter-title-container{
+        @media (max-width:425px) {
+            padding-left: toRem(16);
+        }
+    }
     .filter-title-style{
         color: $white;
         font-size: toRem(14);
@@ -35,15 +51,18 @@
 
     .btn-container{
         width: 80%;
+
+        @media (max-width:425px) {
+            width: 100%;
+            padding-left: toRem(16);
+        }
     }
 }
 
 .results-container{
     margin: toRem(116) toRem(24) 0 toRem(24);
-    gap: toRem(32);
 
     .movie-container{
-        padding: 0;
 
         .movie-title-style{
             font-weight: 700;
@@ -64,6 +83,7 @@
 
         .img-style{
             width: inherit;
+            border-radius: toRem(4);
         }
     }
     

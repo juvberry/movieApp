@@ -12,7 +12,7 @@ const routes: Routes = [
     }
   },
   { 
-    path: 'home-details',
+    path: 'home-details/:id',
     loadChildren: () => import('./features/home-details/home-details.module').then(m => m.HomeDetailsModule),
     data: {
       isParent: false

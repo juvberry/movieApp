@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeDetailsRoutingModule } from './home-details-routing.module';
 import { HomeDetailsComponent } from './home-details.component'
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { UtilServiceService } from 'src/app/services/utilService/util-service.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     HomeDetailsRoutingModule,
-    SharedModule
+    SharedModule,
+    YouTubePlayerModule
+  ],
+  providers: [
+    UtilServiceService
   ]
 })
 export class HomeDetailsModule { }

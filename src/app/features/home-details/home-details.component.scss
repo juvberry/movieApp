@@ -5,14 +5,22 @@
     line-height: toRem(24);
 }
 
+.main-title-style{
+    font-size: toRem(28);
+    font-weight: 700;
+    line-height: toRem(32);
+    padding: 0;
+    letter-spacing: -0.005em;
+}
+
 .img-style{
-    width: 98%;
+    width: 100%;
     border-radius: toRem(8);
 }
 
 .movie-info-container{
     color: $white;
-
+    
     .title-style{
         font-size: toRem(32);
         line-height: toRem(38);
@@ -25,6 +33,7 @@
         font-size: toRem(18);
         font-weight: 400;
         margin-bottom: toRem(16);
+
     }
     
     .spinner-container{
@@ -75,14 +84,13 @@
     
 }
 
+
+
 .actors-container{
     margin-top: toRem(74);
 
-    .cast-title-style{
-        font-size: toRem(28);
-        font-weight: 700;
-        line-height: toRem(32);
-        padding: 0;
+    @media (max-width:425px) {
+        margin-top: toRem(120);
     }
     .actor-img-style{
         padding: toRem(8);
@@ -92,10 +100,27 @@
         font-size: toRem(18);
         line-height: toRem(30);
     }
+    
     .actor-role-style{
         font-size: toRem(16);
         font-weight: 400;
         color: #131313;
         margin: 0;
     }
+}
+
+.reco-img-style{
+    width: 100%;
+    border-radius: toRem(4);
+}
+.reco-title-style{
+    font-size: toRem(16);
+    font-weight: 700;
+    margin: 0;
+}
+.reco-date-style{
+    font-size: toRem(14);
+    font-weight: 700;
+    margin: 0 0 toRem(16) 0;
+    color: #646464;
 }
