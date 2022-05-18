@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { HeaderModule } from './header/header.module';
+import { YouTubePlayerModule } from "@angular/youtube-player"
 
 const Core = [
   RouterModule,
@@ -42,13 +43,15 @@ const MaterialModules = [
     CommonModule,
     HeaderModule,
     MaterialModules,
-    RouterModule
+    RouterModule,
+    YouTubePlayerModule
   ],
   exports: [
     Components,
     MaterialModules,
     HeaderModule,
-    Core
+    Core,
+    YouTubePlayerModule
   ]
 })
 export class SharedModule { }

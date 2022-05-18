@@ -51,6 +51,12 @@
         width: toRem(102);
         word-wrap: break-word;
         line-height: toRem(20);
+
+        .evaluation-style{
+            font-size: toRem(16);
+            font-weight: 400;
+        }
+
     }
 
     .resume-title-style{

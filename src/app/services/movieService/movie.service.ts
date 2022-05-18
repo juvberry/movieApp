@@ -19,16 +19,17 @@ export class MovieService {
   }
 
   getMovieId(id:any):Observable<any>{
-    return this.http.get(this.movie + id + environment.authKey)
+    return this.http.get(this.movie + id + environment.authKey + environment.localLang)
   }
 
   getMovieCredits(id:any):Observable<any>{
-    return this.http.get(this.movie + id + '/credits' + environment.authKey)
+    return this.http.get(this.movie + id + '/credits' + environment.authKey + environment.localLang)
   }
 
   getMovieReco(id:any):Observable<any>{
-    return this.http.get(this.movie + id + '/recommendations' + environment.authKey)
+    return this.http.get(this.movie + id + '/recommendations' + environment.authKey + environment.localLang)
   }
+
   getMovieVideos(id:any):Observable<any>{
     return this.http.get(this.movie + id + '/videos' + environment.authKey)
   }

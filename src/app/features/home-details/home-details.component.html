@@ -4,27 +4,24 @@
             <img class="img-style" [src]="url + movie?.poster_path" alt="movie poster">
         </div>
         <div [ngClass]="{'d-flex-column': isMobile, 'd-flex-row': !isMobile }" 
-             class="col mt-5 d-flex-row movie-info-container">
+             class="col mt-5 mt-md-0 d-flex-row movie-info-container">
             <div>
                 <p class="title-style">
-                    {{movie?.original_title}}
+                    {{movie?.title}}
                 </p>
             </div>
             <ng-container *ngIf="!isMobile">
                 <p class="subtitle-style">
-                    16 anos  • {{movie?.release_date}}  •  {{movie?.genres[0]?.name}}, {{movie?.genres[1]?.name}}, {{movie?.genres[2]?.name}}, {{movie?.genres[3]?.name}} • {{movie?.runtime}}
+                    {{movie?.release_date}}  •  {{movie?.genres[0]?.name}} {{movie?.genres[1]?.name}} {{movie?.genres[2]?.name}} {{movie?.genres[3]?.name}} • {{movie?.runtime}} min
                 </p>
             </ng-container>
             <ng-container *ngIf="isMobile">
                 <ul class="subtitle-style">
                     <li>
-                        16 anos
-                    </li>
-                    <li>
                         {{movie?.release_date}}
                     </li>
                     <li>
-                        {{movie?.genres[0]?.name}}, {{movie?.genres[1]?.name}}, {{movie?.genres[2]?.name}}, {{movie?.genres[3]?.name}}
+                        {{movie?.genres[0]?.name}}, {{movie?.genres[1]?.name}} {{movie?.genres[2]?.name}} {{movie?.genres[3]?.name}}
                     </li>
                     <li>
                         {{movie?.runtime}}
@@ -34,20 +31,20 @@
             <div class="d-flex align-items-center">
                 <div class="spinner-container d-flex align-items-center">
                     <mat-progress-spinner
-                        [value]="76">
+                        [value]="((movie?.vote_average)*10)">
                     </mat-progress-spinner>
                     <div class="percentage-container">
-                        <p>76%</p>
+                        <p>{{((movie?.vote_average)/10) | percent}}</p>
                     </div>
                 </div>
                 <div class="evaluation-container">
-                    <p>
+                    <p class="evaluation-style">
                         Avaliação dos usuários
                     </p>
                 </div>
             </div>
             <div>
-                <p class="resume-title-style mb-4">
+                <p class="resume-title-style mb-2">
                     Sinopse
                 </p>
             </div>
@@ -57,51 +54,15 @@
                 </p>
             </div>
             <div class="d-flex flex-wrap mt-md-0 mt-5 credits-container">
-                <div class="jobs-container mb-4">
+                <div class="jobs-container mb-4" *ngFor="let credit of crewArray">
                     <div>
                         <p class="name-style">
-                            Rob Liefeld 
+                            {{credit?.name}}
                         </p>
                     </div>
                     <div>
                         <p class="job-style">
-                            Characters
-                        </p>
-                    </div>
-                </div>
-                <div class="jobs-container">
-                    <div>
-                        <p class="name-style">
-                            Rob Liefeld 
-                        </p>
-                    </div>
-                    <div>
-                        <p class="job-style">
-                            Characters
-                        </p>
-                    </div>
-                </div>
-                <div class="jobs-container">
-                    <div>
-                        <p class="name-style">
-                            Rob Liefeld 
-                        </p>
-                    </div>
-                    <div>
-                        <p class="job-style">
-                            Characters
-                        </p>
-                    </div>
-                </div>
-                <div class="jobs-container">
-                    <div>
-                        <p class="name-style">
-                            Rob Liefeld 
-                        </p>
-                    </div>
-                    <div>
-                        <p class="job-style">
-                            Characters
+                            {{credit?.job}}
                         </p>
                     </div>
                 </div>
@@ -113,92 +74,17 @@
                     Elenco original
                 </p>
             </div>
-            <div class="col d-flex actor-info-container">
+            <div class="col d-flex actor-info-container" *ngFor="let cast of castArray">
                 <mat-card>
-                        <img mat-card-image class="actor-img-style" src="../../../assets/img/image 28.svg" alt="Ryan Reynolds">
+                        <img mat-card-image class="actor-img-style" [src]="url + cast?.profile_path" alt="{{cast?.name}} profile picture">
                     <div>
                         <mat-card-title class="actor-name-style">
-                            Ryan Reynolds
+                            {{cast?.name}}
                         </mat-card-title>
                     </div>
                     <div>
                         <mat-card-subtitle class="actor-role-style">
-                            Wade Wilson / Deadpool
-                        </mat-card-subtitle>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col d-flex actor-info-container">
-                <mat-card>
-                        <img mat-card-image class="actor-img-style" src="../../../assets/img/image 29.svg" alt="Morena Baccarin">
-                    <div>
-                        <mat-card-title class="actor-name-style">
-                            Morena Baccarin
-                        </mat-card-title>
-                    </div>
-                    <div>
-                        <mat-card-subtitle class="actor-role-style">
-                            Vanessa
-                        </mat-card-subtitle>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col d-flex actor-info-container">
-                <mat-card>
-                        <img mat-card-image class="actor-img-style" src="../../../assets/img/image 30.svg" alt="Ed Skrein">
-                    <div>
-                        <mat-card-title class="actor-name-style">
-                            Ed Skrein
-                        </mat-card-title>
-                    </div>
-                    <div>
-                        <mat-card-subtitle class="actor-role-style">
-                            Alex
-                        </mat-card-subtitle>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col d-flex actor-info-container">
-                <mat-card>
-                        <img mat-card-image class="actor-img-style" src="../../../assets/img/image 31.svg" alt="T. J. Miller">
-                    <div>
-                        <mat-card-title class="actor-name-style">
-                            T. J. Miller
-                        </mat-card-title>
-                    </div>
-                    <div>
-                        <mat-card-subtitle class="actor-role-style">
-                            Weasel
-                        </mat-card-subtitle>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col d-flex actor-info-container">
-                <mat-card>
-                        <img mat-card-image class="actor-img-style" src="../../../assets/img/image 32.svg" alt="Gina Carano">
-                    <div>
-                        <mat-card-title class="actor-name-style">
-                            Gina Carano
-                        </mat-card-title>
-                    </div>
-                    <div>
-                        <mat-card-subtitle class="actor-role-style">
-                            Angel Dust
-                        </mat-card-subtitle>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col d-flex actor-info-container">
-                <mat-card>
-                        <img mat-card-image class="actor-img-style" src="../../../assets/img/image 33.svg" alt="Leslie Uggams">
-                    <div>
-                        <mat-card-title class="actor-name-style">
-                            Leslie Uggams
-                        </mat-card-title>
-                    </div>
-                    <div>
-                        <mat-card-subtitle class="actor-role-style">
-                            Blind Al
+                            {{cast?.character}}
                         </mat-card-subtitle>
                     </div>
                 </mat-card>
@@ -211,104 +97,44 @@
                 </p>
             </div>
             <div class="col">
-                movie trailer
+                <youtube-player 
+                    videoId="{{trailerKey}}" 
+                    suggestedQuality="highres" 
+                    [height]="500" 
+                    [width]="900" 
+                    [startSeconds]="1">
+                </youtube-player>
             </div>
         </div>
-        <div class="row recomendations-container mt-5">
+        <div class="row recomendations-container mt-5" *ngIf="reco">
             <div class="col-12 mb-4">
                 <p class="main-title-style">
                     Recomendações
                 </p>
             </div>
-            <div class="col-6 col-md-2 d-flex flex-column reco-movie-info">
-                <div>
-                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
+                <div class="col-6 col-md-2 d-flex flex-column reco-movie-info" *ngFor="let reco of recoArray">
+                    <a routerLink="/home-details/{{reco.id}}">
+                        <div>
+                            <img class="reco-img-style" [src]="url + reco?.poster_path" alt="{{reco?.name}} poster image">
+                        </div>
+                        <div>
+                            <p class="reco-title-style">
+                                {{reco?.title}}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="reco-date-style">
+                                {{reco?.release_date}}
+                            </p>
+                        </div>
+                    </a>
                 </div>
-                <div>
-                    <p class="reco-title-style">
-                        Clifford
-                    </p>
-                </div>
-                <div>
-                    <p class="reco-date-style">
-                        12 NOV 2021
-                    </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 reco-movie-info">
-                <div>
-                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
-                </div>
-                <div>
-                    <p class="reco-title-style">
-                        Clifford
-                    </p>
-                </div>
-                <div>
-                    <p class="reco-date-style">
-                        12 NOV 2021
-                    </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 reco-movie-info">
-                <div>
-                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
-                </div>
-                <div>
-                    <p class="reco-title-style">
-                        Clifford
-                    </p>
-                </div>
-                <div>
-                    <p class="reco-date-style">
-                        12 NOV 2021
-                    </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 reco-movie-info">
-                <div>
-                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
-                </div>
-                <div>
-                    <p class="reco-title-style">
-                        Clifford
-                    </p>
-                </div>
-                <div>
-                    <p class="reco-date-style">
-                        12 NOV 2021
-                    </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 reco-movie-info">
-                <div>
-                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
-                </div>
-                <div>
-                    <p class="reco-title-style">
-                        Clifford
-                    </p>
-                </div>
-                <div>
-                    <p class="reco-date-style">
-                        12 NOV 2021
-                    </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-2 reco-movie-info">
-                <div>
-                    <img class="reco-img-style" src="../../../assets/img/image 19.png" alt="">
-                </div>
-                <div>
-                    <p class="reco-title-style">
-                        Clifford
-                    </p>
-                </div>
-                <div>
-                    <p class="reco-date-style">
-                        12 NOV 2021
-                    </p>
-                </div>
+        </div>
+        <div class="row recommendations-container mt-5" *ngIf="!reco">
+            <div class="col-12 mb-4">
+                <p class="main-title-style fs-5">
+                    Opa! Ainda não temos recomendações para este filme...
+                </p>
             </div>
         </div>
     </div>
