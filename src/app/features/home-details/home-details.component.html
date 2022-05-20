@@ -12,29 +12,32 @@
             </div>
             <ng-container *ngIf="!isMobile">
                 <p class="subtitle-style">
-                    {{movie?.release_date}}  •  {{movie?.genres[0]?.name}} {{movie?.genres[1]?.name}} {{movie?.genres[2]?.name}} {{movie?.genres[3]?.name}} • {{movie?.runtime}} min
+                    {{certificationAge + ' anos •' + releaseDate + ' (BR) •'}} <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', • ':genre?.name)}}</span> {{movie?.runtime + 'min'}}
                 </p>
             </ng-container>
             <ng-container *ngIf="isMobile">
                 <ul class="subtitle-style">
                     <li>
-                        {{movie?.release_date}}
+                        {{certificationAge + ' anos'}} 
                     </li>
                     <li>
-                        {{movie?.genres[0]?.name}}, {{movie?.genres[1]?.name}} {{movie?.genres[2]?.name}} {{movie?.genres[3]?.name}}
+                        {{releaseDate + ' (BR)'}} 
                     </li>
                     <li>
-                        {{movie?.runtime}}
+                        <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name)}}</span>
+                    </li>
+                    <li>
+                        {{movie?.runtime + 'min'}}
                     </li>
                 </ul>
             </ng-container>
             <div class="d-flex align-items-center">
                 <div class="spinner-container d-flex align-items-center">
                     <mat-progress-spinner
-                        [value]="((movie?.vote_average)*10)">
+                        [value]="calcAverage('', movie?.vote_average)">
                     </mat-progress-spinner>
                     <div class="percentage-container">
-                        <p>{{((movie?.vote_average)/10) | percent}}</p>
+                        <p>{{calcAverage('divide', movie?.vote_average) | percent}}</p>
                     </div>
                 </div>
                 <div class="evaluation-container">

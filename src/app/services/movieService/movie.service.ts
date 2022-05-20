@@ -33,4 +33,8 @@ export class MovieService {
   getMovieVideos(id:any):Observable<any>{
     return this.http.get(this.movie + id + '/videos' + environment.authKey)
   }
+
+  getReleaseDate(id:any):Observable<any>{
+    return this.http.get(this.movie + id + '/release_dates' + environment.authKey)
+  }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { MovieService } from 'src/app/services/movieService/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-home-details',
@@ -14,8 +15,15 @@ export class HomeDetailsComponent implements OnInit {
   constructor(
       private breakpointObserver:BreakpointObserver,
       private movieService:MovieService,
-      private route:ActivatedRoute
+      private route:ActivatedRoute,
+      private router:Router,
     ) { 
+      this.router.events.subscribe((ev)=>{
+        if(ev instanceof NavigationEnd){
+          this.movieId = this.route.snapshot.params['id']
+          this.getMovieId()
+        }
+      })
   }
 
   isMobile:any = false;
@@ -26,16 +34,14 @@ export class HomeDetailsComponent implements OnInit {
   trailerArray:any
   trailerKey:any
   recoArray:any
+  releaseDate:any
+  certificationAge:any
+  movieId:any = null
   reco:any = true
-  movieId = this.route.snapshot.params['id']
   url:string = 'https://image.tmdb.org/t/p/w500'
 
-  ngOnInit( ): void {
+  ngOnInit(): void {
     this.isMobileScreen()
-    this.getMovieId()
-    this.getCredits()
-    this.getMovieTrailer()
-    this.getRecommendations()
   }
 
   isMobileScreen(){
@@ -49,9 +55,12 @@ export class HomeDetailsComponent implements OnInit {
   }
   
   getMovieId(){
-    this.movieService.getMovieId(this.movieId).subscribe((res) => {
-      moment.locale('pt-br')
-      res.release_date = moment(res.release_date).format('DD MMM YYYY').toLocaleUpperCase()
+    this.movieService.getMovieId(this.movieId).pipe(finalize(()=>{
+      this.getCredits()
+      this.getMovieTrailer()
+      this.getRecommendations()
+      this.getReleaseDate()
+    })).subscribe((res) => {
       this.movie = res
     })
   }
@@ -85,6 +94,17 @@ export class HomeDetailsComponent implements OnInit {
         this.reco = false
       }
       this.filterReco()
+    })
+  }
+
+  getReleaseDate(){
+    this.movieService.getReleaseDate(this.movieId).subscribe((res)=>{
+      this.releaseDate = res.results
+      this.filterDates()
+      moment.locale('pt-br')
+      this.releaseDate = moment(this.releaseDate).format('DD/MM/YYYY')
+      console.log(this.certificationAge)
+      console.log(this.releaseDate)
     })
   }
 
@@ -128,5 +148,31 @@ export class HomeDetailsComponent implements OnInit {
     let newRecoArr = clonedRecoArr.splice(0,6)
     this.recoArray = newRecoArr
     
+  }
+
+  filterDates(){
+    let clonedDatesArr = [...this.releaseDate]
+    let dateObj = clonedDatesArr.find((arr:any)=>{
+      return (arr.iso_3166_1 === 'BR')
+    })
+
+    let newDateArr = dateObj.release_dates
+    let date = newDateArr.find((arr:any)=>{
+      return (arr.certification != "" && arr.certification != null)
+    })
+    this.releaseDate = date.release_date
+    this.certificationAge = date.certification
+  }
+
+  calcAverage(type:any, value:any){
+    switch (type) {
+      case 'divide':
+        return value/10
+        break;
+    
+      default:
+        return value*10
+        break;
+    }
   }
 }
