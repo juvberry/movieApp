@@ -7,29 +7,16 @@
             <p class="filter-title-style">FILTRE POR:</p>
         </div>
         <div class="col-12 btn-container d-flex justify-content-center flex-wrap">
-            <app-btn-filter class="col mb-2"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
-            <app-btn-filter class="col"></app-btn-filter>
+            <button mat-flat-button class="col-auto mb-2 btn-style" *ngFor="let genre of genreArray" (click)="filterGenreId(genre.id)">
+                {{genre?.name}}
+                <mat-icon *ngIf="genre.selectedGenre">
+                    cancel
+                </mat-icon>
+            </button>
         </div>
     </div>
     <div class="row results-container">
-        <div class="col-6 col-md-2 mb-4 d-flex flex-column movie-container"  *ngFor="let movie of popMovies">
+        <div class="col-6 col-md-3 mb-4 d-flex flex-column movie-container"  *ngFor="let movie of moviesList">
             <a routerLink="/home-details/{{movie.id}}">
                 <div class="img-container">
                     <img class="img-style" [src]="url + movie?.poster_path" alt="movie img">
@@ -44,7 +31,7 @@
         </div>
     </div>
     <mat-paginator  [length]="100"
-                    [pageSize]="24"
+                    [pageSize]="20"
                     [hidePageSize]="true"
                     class="paginator-style">
     </mat-paginator>

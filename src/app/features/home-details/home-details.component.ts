@@ -157,9 +157,8 @@ export class HomeDetailsComponent implements OnInit {
     })
 
     let newDateArr = dateObj.release_dates
-    let date = newDateArr.find((arr:any)=>{
-      return (arr.certification != "" && arr.certification != null)
-    })
+    let date = newDateArr[0]
+    
     this.releaseDate = date.release_date
     this.certificationAge = date.certification
   }

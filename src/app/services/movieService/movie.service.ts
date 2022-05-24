@@ -37,4 +37,8 @@ export class MovieService {
   getReleaseDate(id:any):Observable<any>{
     return this.http.get(this.movie + id + '/release_dates' + environment.authKey)
   }
+
+  getGenreList():Observable<any>{
+    return this.http.get(environment.api_url + '/genre/movie/list' + environment.authKey + environment.localLang)
+  }
 }
