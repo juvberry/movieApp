@@ -17,7 +17,7 @@
     </div>
     <div class="row results-container">
         <div class="col-6 col-md-3 mb-4 d-flex flex-column movie-container"  *ngFor="let movie of moviesList">
-            <a routerLink="/home-details/{{movie.id}}">
+            <a routerLink="/home-details/{{movie.id}}" class="link-container">
                 <div class="img-container">
                     <img class="img-style" [src]="url + movie?.poster_path" alt="movie img">
                 </div>
@@ -33,6 +33,7 @@
     <mat-paginator  [length]="100"
                     [pageSize]="20"
                     [hidePageSize]="true"
+                    (page)="pageEvent = $event"
                     class="paginator-style">
     </mat-paginator>
 </div>

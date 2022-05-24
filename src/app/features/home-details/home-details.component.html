@@ -77,21 +77,23 @@
                     Elenco original
                 </p>
             </div>
-            <div class="col d-flex actor-info-container" *ngFor="let cast of castArray">
-                <mat-card>
-                        <img mat-card-image class="actor-img-style" [src]="url + cast?.profile_path" alt="{{cast?.name}} profile picture">
-                    <div>
-                        <mat-card-title class="actor-name-style">
-                            {{cast?.name}}
-                        </mat-card-title>
-                    </div>
-                    <div>
-                        <mat-card-subtitle class="actor-role-style">
-                            {{cast?.character}}
-                        </mat-card-subtitle>
-                    </div>
-                </mat-card>
-            </div>
+            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="{{castArray.length}}" style="height: 30rem;">
+                <div class="col d-flex actor-info-container">
+                    <mat-card  *cdkVirtualFor="let cast of castArray" class="teste">
+                            <img mat-card-image class="actor-img-style" [src]="url + cast?.profile_path" alt="{{cast?.name}} profile picture">
+                        <div>
+                            <mat-card-title class="actor-name-style">
+                                {{cast?.name}}
+                            </mat-card-title>
+                        </div>
+                        <div>
+                            <mat-card-subtitle class="actor-role-style">
+                                {{cast?.character}}
+                            </mat-card-subtitle>
+                        </div>
+                    </mat-card>
+                </div>
+            </cdk-virtual-scroll-viewport>
         </div>
         <div class="row trailer-container mt-5">
             <div class="col-12">
@@ -99,13 +101,24 @@
                     Trailer
                 </p>
             </div>
-            <div class="col">
+            <div class="col" *ngIf="!isMobile">
                 <youtube-player 
                     videoId="{{trailerKey}}" 
                     suggestedQuality="highres" 
                     [height]="500" 
                     [width]="900" 
-                    [startSeconds]="1">
+                    [startSeconds]="1"
+                    class="video-style">
+                </youtube-player>
+            </div>
+            <div class="col" *ngIf="isMobile">
+                <youtube-player 
+                    videoId="{{trailerKey}}" 
+                    suggestedQuality="highres" 
+                    [height]="216" 
+                    [width]="372" 
+                    [startSeconds]="1"
+                    class="video-style">
                 </youtube-player>
             </div>
         </div>
@@ -116,7 +129,7 @@
                 </p>
             </div>
                 <div class="col-6 col-md-2 d-flex flex-column reco-movie-info" *ngFor="let reco of recoArray">
-                    <a routerLink="/home-details/{{reco.id}}">
+                    <a routerLink="/home-details/{{reco.id}}" class="link-container">
                         <div>
                             <img class="reco-img-style" [src]="url + reco?.poster_path" alt="{{reco?.name}} poster image">
                         </div>

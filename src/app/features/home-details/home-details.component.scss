@@ -90,13 +90,16 @@
     
 }
 
-
-
 .actors-container{
     margin-top: toRem(74);
 
+    .teste{
+        width: 260px;
+        margin-right: 16px;
+    }
+
     @media (max-width:425px) {
-        margin-top: toRem(120);
+        margin-top: toRem(180);
     }
     .actor-img-style{
         padding: toRem(8);
@@ -113,6 +116,11 @@
         color: #131313;
         margin: 0;
     }
+}
+
+a:link, a:visited .link-container{
+    text-decoration: none;
+    color: #000000;
 }
 
 .reco-img-style{

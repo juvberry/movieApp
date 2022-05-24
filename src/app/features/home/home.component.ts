@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/services/movieService/movie.service';
 import * as moment from 'moment';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   moviesList:any
   genreArray:any
   genreId:any
+  pageEvent!: PageEvent;
   selectedGenresList:any = []
 
   url:string = 'https://image.tmdb.org/t/p/w500'
@@ -43,6 +45,10 @@ export class HomeComponent implements OnInit {
       })
       this.genreArray = res.genres
     })
+  }
+
+  getNextPage(){
+
   }
 
   filterGenreId(genreId:any){

@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { HeaderModule } from './header/header.module';
 import { YouTubePlayerModule } from "@angular/youtube-player"
@@ -32,7 +33,8 @@ const MaterialModules = [
   MatProgressSpinnerModule,
   MatCardModule,
   MatSliderModule,
-  MatIconModule
+  MatIconModule,
+  ScrollingModule
 ]
 
 @NgModule({
