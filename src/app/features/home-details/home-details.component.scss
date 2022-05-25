@@ -18,6 +18,13 @@
     border-radius: toRem(8);
 }
 
+.subtitle-style{
+    font-size: toRem(18);
+    font-weight: 400;
+    margin-bottom: toRem(16);
+
+}
+
 .movie-info-container{
     color: $white;
     
@@ -29,13 +36,6 @@
         letter-spacing: -0.005em;
     }
 
-    .subtitle-style{
-        font-size: toRem(18);
-        font-weight: 400;
-        margin-bottom: toRem(16);
-
-    }
-    
     .spinner-container{
         
         .percentage-container{
@@ -93,9 +93,9 @@
 .actors-container{
     margin-top: toRem(74);
 
-    .teste{
-        width: 260px;
-        margin-right: 16px;
+    .cast-style{
+        width: toRem(180);
+        margin-right: toRem(16);
     }
 
     @media (max-width:425px) {
@@ -103,6 +103,8 @@
     }
     .actor-img-style{
         padding: toRem(8);
+        min-width: toRem(164);
+        min-height: toRem(262);
     }
 
     .actor-name-style{

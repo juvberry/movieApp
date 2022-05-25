@@ -1,0 +1,17 @@
+@import '../../../../../styles/to-rem.scss';
+@import '../../../../../styles/variables.scss';
+
+.btn-style{
+    background-color: $white;
+    height: toRem(40);
+    margin-right: 12px;
+    color: #323232;
+    font-size: toRem(16);
+    line-height: toRem(24);
+    font-weight: 700;
+
+    @media (max-width:425px) {
+        height: toRem(32);
+        line-height: toRem(20);
+    }
+}

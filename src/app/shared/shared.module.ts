@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // Core
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 // Components
 
@@ -22,6 +23,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player"
 const Core = [
   RouterModule,
   HttpClientModule,
+  NgxSkeletonLoaderModule
 ]
 
 const Components = [
@@ -45,7 +47,8 @@ const MaterialModules = [
     HeaderModule,
     MaterialModules,
     RouterModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    NgxSkeletonLoaderModule
   ],
   exports: [
     MaterialModules,

@@ -10,10 +10,12 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private movieService:MovieService ) { }
+  constructor( private movieService:MovieService ) {
+  }
 
   isMobile:any = false
   selectedGenre:any = false
+  loader:any = true
   moviesList:any
   genreArray:any
   genreId:any
@@ -27,14 +29,18 @@ export class HomeComponent implements OnInit {
     this.getGenreList()
   }
 
-  getPopularMovieList(){
-    this.movieService.getPopularMovies().subscribe((res) => {
-      moment.locale('pt-br');
-      res.results.forEach((movRes:any) => {
-        movRes.release_date = moment(movRes.release_date).format('DD MMM YYYY').toLocaleUpperCase()
-      });
-      this.moviesList = res.results
-      localStorage.setItem('moviesList', JSON.stringify(this.moviesList))
+  getPopularMovieList(page?:any){
+    this.movieService.getPopularMovies(page).subscribe((res) => {
+      window.scroll(0,0);
+      setTimeout(()=>{
+        moment.locale('pt-br');
+        res.results.forEach((movRes:any) => {
+          movRes.release_date = moment(movRes.release_date).format('DD MMM YYYY').toLocaleUpperCase()
+        });
+        this.moviesList = res.results
+        localStorage.setItem('moviesList', JSON.stringify(this.moviesList))
+        this.loader = false
+      }, 3000)
     })
   }
 
@@ -47,8 +53,11 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getNextPage(){
-
+  getNextPage(pageObj:any){
+    const page = pageObj.pageIndex + 1
+    this.loader = true
+    this.getPopularMovieList(page)
+    window.scroll(0,0);
   }
 
   filterGenreId(genreId:any){

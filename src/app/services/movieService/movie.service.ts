@@ -9,12 +9,13 @@ import { environment } from 'src/environments/environment';
 export class MovieService {
 
   baseUrl:string = '';
-  popularityUrl:string = environment.api_url + 'movie/popular?api_key=fabb0e3340d2025e4ce26632d735c575&language=en-US&page=1'
-  movie:string = environment.api_url + '/movie/'
+  popularityUrl:any
+  movie:string = environment.api_url + 'movie/'
 
   constructor( private http:HttpClient ) { }
 
-  getPopularMovies():Observable<any>{
+  getPopularMovies(page?:any):Observable<any>{
+    this.popularityUrl = environment.api_url + 'movie/popular?api_key=fabb0e3340d2025e4ce26632d735c575&language=pt-BR&page=' + (page?page:1)
     return this.http.get<any>(this.popularityUrl)
   }
 
