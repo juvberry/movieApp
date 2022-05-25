@@ -1,6 +1,12 @@
 <div class="container-fluid">
-    <div class="row pt-5 justify-content-center">
+    <div class="row pt-5 justify-content-center" *ngIf="loader">
         <div class="col-7 col-md-4">
+            <ngx-skeleton-loader count="1" appearance="line" animation="progress"></ngx-skeleton-loader> 
+        </div>
+    </div>
+    
+    <div class="row pt-5 justify-content-center" *ngIf="!loader">
+        <div class="col-7 col-md-4" >
             <img class="img-style" [src]="url + movie?.poster_path" alt="movie poster">
         </div>
         <div [ngClass]="{'d-flex-column': isMobile, 'd-flex-row': !isMobile }" 
@@ -12,13 +18,13 @@
             </div>
             <ng-container *ngIf="!isMobile">
                 <p class="subtitle-style">
-                    {{certificationAge?certificationAge + ' anos • ':''}}{{releaseDate + ' (BR) •'}} <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name + ' •')}}</span> {{movie?.runtime + 'min'}}
+                    {{certificationAge?certificationAge + ' anos • ':''}}{{releaseDate + ' •'}} <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name + ' •')}}</span> {{movie?.runtime + ' min'}}
                 </p>
             </ng-container>
             <ng-container *ngIf="isMobile">
                 <ul class="subtitle-style">
                     <li>
-                        {{certificationAge + ' anos'}} 
+                        {{certificationAge?certificationAge + ' anos':''}} 
                     </li>
                     <li>
                         {{releaseDate + ' (BR)'}} 
@@ -27,7 +33,7 @@
                         <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name)}}</span>
                     </li>
                     <li>
-                        {{movie?.runtime + 'min'}}
+                        {{movie?.runtime + ' min'}}
                     </li>
                 </ul>
             </ng-container>
@@ -52,8 +58,13 @@
                 </p>
             </div>
             <div>
-                <p class="resume-style">
+                <p class="resume-style" *ngIf="movie.overview">
                     {{movie?.overview}}
+                </p>
+            </div>
+            <div>
+                <p class="resume-style" *ngIf="!movie.overview">
+                    Ops, ainda estamos trabalhando para traduzir essa sinopse para você!
                 </p>
             </div>
             <div class="d-flex flex-wrap mt-md-0 mt-5 credits-container">
@@ -77,10 +88,15 @@
                     Elenco original
                 </p>
             </div>
-            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="{{castArray.length}}" style="height: 30rem;">
+            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="{{castArray.length}}" style="height: 25rem; overflow-y: hidden">
                 <div class="col d-flex actor-info-container">
-                    <mat-card  *cdkVirtualFor="let cast of castArray" class="teste">
-                            <img mat-card-image class="actor-img-style" [src]="url + cast?.profile_path" alt="{{cast?.name}} profile picture">
+                    <mat-card  *cdkVirtualFor="let cast of castArray" class="cast-style">
+                        <div *ngIf="cast.profile_path">
+                            <img  mat-card-image class="actor-img-style" [src]="url + cast?.profile_path" alt="{{cast?.name}} profile picture">
+                        </div>
+                        <div *ngIf="!cast.profile_path">
+                            <img  mat-card-image class="actor-img-style" src="../../../assets/img/default-user-icon-7.jpg" alt="{{cast?.name}} profile picture">
+                        </div>
                         <div>
                             <mat-card-title class="actor-name-style">
                                 {{cast?.name}}
@@ -101,7 +117,7 @@
                     Trailer
                 </p>
             </div>
-            <div class="col" *ngIf="!isMobile">
+            <ng-template class="col" *ngIf="!isMobile">
                 <youtube-player 
                     videoId="{{trailerKey}}" 
                     suggestedQuality="highres" 
@@ -110,8 +126,8 @@
                     [startSeconds]="1"
                     class="video-style">
                 </youtube-player>
-            </div>
-            <div class="col" *ngIf="isMobile">
+            </ng-template>
+            <ng-template class="col" *ngIf="isMobile">
                 <youtube-player 
                     videoId="{{trailerKey}}" 
                     suggestedQuality="highres" 
@@ -120,6 +136,11 @@
                     [startSeconds]="1"
                     class="video-style">
                 </youtube-player>
+            </ng-template>
+            <div class="col" *ngIf="!trailerKey">
+                <p class="subtitle-style text-start ">
+                    Este filme não possui um trailer oficial.
+                </p>
             </div>
         </div>
         <div class="row recomendations-container mt-5" *ngIf="reco">

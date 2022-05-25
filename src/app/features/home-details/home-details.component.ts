@@ -24,6 +24,7 @@ export class HomeDetailsComponent implements OnInit {
           this.getMovieId()
         }
       })
+      window.scroll(0,0);
   }
 
   isMobile:any = false;
@@ -36,9 +37,11 @@ export class HomeDetailsComponent implements OnInit {
   recoArray:any
   releaseDate:any
   certificationAge:any
+  loader:any = true
   movieId:any = null
   reco:any = true
   url:string = 'https://image.tmdb.org/t/p/w500'
+  // [theme]="{'background-color': '#e9defc', 'opacity': '0.5', 'margin-top':'10px', 'border': '2px solid #FFF'}"
 
   ngOnInit(): void {
     this.isMobileScreen()
@@ -61,7 +64,10 @@ export class HomeDetailsComponent implements OnInit {
       this.getRecommendations()
       this.getReleaseDate()
     })).subscribe((res) => {
-      this.movie = res
+      setTimeout(()=>{
+        this.movie = res
+        this.loader = false
+      }, 3000)
     })
   }
 
@@ -129,7 +135,7 @@ export class HomeDetailsComponent implements OnInit {
     let clonedCastObj = {...cast}
     let castArr = clonedCastObj.cast
     let newCastArr = castArr.filter((arr:any)=>{
-      return (arr.order <= 5)
+      return (arr.order <= 8)
     })
 
     this.castArray = newCastArr
@@ -153,7 +159,7 @@ export class HomeDetailsComponent implements OnInit {
   filterDates(){
     let clonedDatesArr = [...this.releaseDate]
     let dateObj = clonedDatesArr.find((arr:any)=>{
-      return (arr.iso_3166_1 === 'BR')
+      return (arr.iso_3166_1 === 'BR' || arr.iso_3166_1 === 'US')
     })
 
     let newDateArr = dateObj.release_dates
