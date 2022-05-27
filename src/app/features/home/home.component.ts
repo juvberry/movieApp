@@ -55,9 +55,7 @@ export class HomeComponent implements OnInit {
 
   getNextPage(pageObj:any){
     const page = pageObj.pageIndex + 1
-    this.loader = true
     this.getPopularMovieList(page)
-    window.scroll(0,0);
   }
 
   filterGenreId(genreId:any){
