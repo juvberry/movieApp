@@ -1,5 +1,4 @@
-<ngx-skeleton-loader count="20" appearance="line" animation="progress" [theme]="{'background-color': '#e9defc', 'opacity': '0.5', 'margin-top':'8px', 'border': '2px solid #FFF'} " *ngIf="loader" ></ngx-skeleton-loader> 
-<div class="home-container" *ngIf="!loader">
+<div class="home-container" *ngIf="loader">
     <div class="row title-container d-flex justify-content-md-center">
         <h2 class="col title-style text-md-center">Milhões de filmes, séries e pessoas para descobrir. Explore já</h2>
     </div>
@@ -7,8 +6,40 @@
         <div class="col-12 text-md-center filter-title-container mb-3">
             <p class="filter-title-style">FILTRE POR:</p>
         </div>
+        <div class="col-12 btn-container d-flex justify-content-center">
+            <div class="col">
+                <ngx-skeleton-loader class="flex-skeleton" count="20" appearance="line" [theme]="{'height':'40px', 'width':'70px', 'margin-right':'12px'}"></ngx-skeleton-loader> 
+            </div>
+        </div>
+    </div>
+    <div class="row results-container flex-skeleton">
+        <div class="movie-container">
+            <ngx-skeleton-loader class="space-between-skeleton" count="20" appearance="line" [theme]="{'height':'412px', 'width':'275px'}"></ngx-skeleton-loader> 
+        </div>
+    </div>
+</div>
+
+<div class="home-container" *ngIf="!loader">
+    <div class="row title-container d-flex justify-content-md-center">
+        <h2 class="col title-style text-md-center">Milhões de filmes, séries e pessoas para descobrir. Explore já</h2>
+    </div>
+    <div class="row filter-container justify-content-center align-items-center mb-3">
+        <div class="col-7 text-md-end filter-title-container">
+            <div class="me-5">
+                <p class="filter-title-style">FILTRE POR:</p>
+            </div>
+        </div>
+        <div class="col-5 d-flex p-0 justify-content-md-center">
+            <div *ngIf="selectedGenresList?.length > 0">
+                <button mat-flat-button class="me-2 btn-style btn-remove-filter" (click)="removeAllFilter()">
+                    Remover filtros
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row filter-container justify-content-center">
         <div class="col-12 btn-container d-flex justify-content-center flex-wrap">
-            <button mat-flat-button class="col-auto mb-2 btn-style" *ngFor="let genre of genreArray" (click)="filterGenreId(genre.id)">
+            <button mat-flat-button class="col-auto mb-2 btn-style" *ngFor="let genre of genreArray" (click)="filterGenreId(genre.id)" [ngClass]="{'btn-selected': genre.selectedGenre}">
                 {{genre?.name}}
                 <mat-icon *ngIf="genre.selectedGenre">
                     cancel
@@ -31,8 +62,9 @@
             </a>
         </div>
     </div>
-    <mat-paginator  [length]="100"
+    <mat-paginator  [length]="pagination.total_pages"
                     [pageSize]="20"
+                    [pageIndex]="pagination.page - 1"
                     [hidePageSize]="true"
                     (page)="getNextPage($event)"
                     class="paginator-style">

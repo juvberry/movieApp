@@ -1,149 +1,22 @@
 <div class="container-fluid">
     <div class="row pt-5 justify-content-center" *ngIf="loader">
         <div class="col-7 col-md-4">
-            <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'585px', 'width':'390px'}"></ngx-skeleton-loader> 
+            <ngx-skeleton-loader count="1" [theme]="{'height':'260px', 'width':'300px'}"></ngx-skeleton-loader> 
         </div>
         <div [ngClass]="{'d-flex-column': isMobile, 'd-flex-row': !isMobile }" 
              class="col mt-5 mt-md-0 d-flex-row movie-info-container">
             <div>
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'32px', 'width':'360px', 'margin-bottom': '8px'}"></ngx-skeleton-loader> 
+                <ngx-skeleton-loader count="1" [theme]="{'height':'32px', 'width':'360px', 'margin-bottom': '8px'}"></ngx-skeleton-loader> 
             </div>
             <ng-container *ngIf="!isMobile">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'18px', 'width':'360px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
+                <ngx-skeleton-loader count="1" [theme]="{'height':'18px', 'width':'360px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
             </ng-container>
             <ng-container *ngIf="isMobile">
-                <ngx-skeleton-loader count="4" appearance="line" animation="progress" [theme]="{'height':'18px', 'width':'100px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
+                <ngx-skeleton-loader count="4" [theme]="{'height':'18px', 'width':'100px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
             </ng-container>
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">
-                    <ngx-skeleton-loader count="1" appearance="circle" animation="progress" [theme]="{'height':'60px', 'width':'60px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
-                </div>
-                <div class="evaluation-container">
-                    <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'50px', 'width':'102px', 'margin-bottom': '16px', 'margin-left': '8px'}"></ngx-skeleton-loader>
-                </div>
-            </div>
-            <div class="mb-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'20px', 'width':'102px', 'margin': '32px, 0px, 8px, 0px'}"></ngx-skeleton-loader> 
-            </div>
-            <div>
-                <ngx-skeleton-loader count="4" appearance="line" animation="progress" [theme]="{'height':'16x', 'width':'800px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
-            </div>
-            <div class="d-flex flex-wrap mt-md-0 mt-5 credits-container">
-                <div class="jobs-container mb-4">
-                    <ngx-skeleton-loader count="2" appearance="line" animation="progress" [theme]="{'height':'32px', 'width':'102px'}"></ngx-skeleton-loader>
-                </div>
-                <div class="jobs-container mb-4">
-                    <ngx-skeleton-loader count="2" appearance="line" animation="progress" [theme]="{'height':'32px', 'width':'102px'}"></ngx-skeleton-loader>
-                </div>
-                <div class="jobs-container mb-4">
-                    <ngx-skeleton-loader count="2" appearance="line" animation="progress" [theme]="{'height':'32px', 'width':'102px'}"></ngx-skeleton-loader>
-                </div>
-            </div>
-        </div>
-        <div class="row actors-container">
-            <div class="col-12">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'28px', 'width':'360px'}"></ngx-skeleton-loader>
-            </div>
-        </div>
-        <div class="row actor-info-container">
-            <div class="col  ">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'300px', 'width':'164px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col ">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'300px', 'width':'164px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col  ">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'300px', 'width':'164px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col  ">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'300px', 'width':'164px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col ">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'300px', 'width':'164px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col ">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'300px', 'width':'164px'}"></ngx-skeleton-loader>
-            </div>
-        </div>
-        <div class="row trailer-container mt-5">
-            <div class="col-12">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'28px', 'width':'360px', 'margin-top':'36px'}"></ngx-skeleton-loader>
-            </div>
-            <ng-template class="col" *ngIf="!isMobile">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'500px', 'width':'900px'}"></ngx-skeleton-loader>
-            </ng-template>
-            <ng-template class="col" *ngIf="isMobile">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'216px', 'width':'372px'}"></ngx-skeleton-loader>
-            </ng-template>
-        </div>
-        <div class="row recomendations-container mt-5">
-            <div class="col-12 mb-4">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'28px', 'width':'360px', 'margin-top':'36px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>          
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>       
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>   
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
-            </div>
-            <div class="col-6 col-md-2">
-                <ngx-skeleton-loader count="1" appearance="line" animation="progress" [theme]="{'height':'270px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pt-5 justify-content-center" *ngIf="!loader">
-        <div class="col-7 col-md-4" >
-            <img class="img-style" [src]="url + movie?.poster_path" alt="movie poster">
-        </div>
-        <div [ngClass]="{'d-flex-column': isMobile, 'd-flex-row': !isMobile }" 
-             class="col mt-5 mt-md-0 d-flex-row movie-info-container">
-            <div>
-                <p class="title-style">
-                    {{movie?.title}}
-                </p>
-            </div>
-            <ng-container *ngIf="!isMobile">
-                <p class="subtitle-style">
-                    {{certificationAge?certificationAge + ' anos • ':''}}{{releaseDate + ' •'}} <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name + ' •')}}</span> {{movie?.runtime + ' min'}}
-                </p>
-            </ng-container>
-            <ng-container *ngIf="isMobile">
-                <ul class="subtitle-style">
-                    <li>
-                        {{certificationAge?certificationAge + ' anos':''}} 
-                    </li>
-                    <li>
-                        {{releaseDate + ' (BR)'}} 
-                    </li>
-                    <li>
-                        <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name)}}</span>
-                    </li>
-                    <li>
-                        {{movie?.runtime + ' min'}}
-                    </li>
-                </ul>
-            </ng-container>
-            <div class="d-flex align-items-center">
-                <div class="spinner-container d-flex align-items-center">
-                    <mat-progress-spinner
-                        [value]="calcAverage('', movie?.vote_average)">
-                    </mat-progress-spinner>
-                    <div class="percentage-container">
-                        <p>{{calcAverage('divide', movie?.vote_average) | percent}}</p>
-                    </div>
+                    <ngx-skeleton-loader count="1" appearance="circle" [theme]="{'height':'60px', 'width':'60px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
                 </div>
                 <div class="evaluation-container">
                     <p class="evaluation-style">
@@ -157,26 +30,136 @@
                 </p>
             </div>
             <div>
-                <p class="resume-style" *ngIf="movie.overview">
-                    {{movie?.overview}}
-                </p>
-            </div>
-            <div>
-                <p class="resume-style" *ngIf="!movie.overview">
-                    Ops, ainda estamos trabalhando para traduzir essa sinopse para você!
-                </p>
+                <ngx-skeleton-loader count="4" [theme]="{'height':'16x', 'width':'800px', 'margin-bottom': '16px'}"></ngx-skeleton-loader> 
             </div>
             <div class="d-flex flex-wrap mt-md-0 mt-5 credits-container">
-                <div class="jobs-container mb-4" *ngFor="let credit of crewArray">
-                    <div>
-                        <p class="name-style">
-                            {{credit?.name}}
+                <div class="jobs-container mb-4">
+                    <ngx-skeleton-loader count="2" [theme]="{'height':'32px', 'width':'102px'}"></ngx-skeleton-loader>
+                </div>
+                <div class="jobs-container mb-4">
+                    <ngx-skeleton-loader count="2" [theme]="{'height':'32px', 'width':'102px'}"></ngx-skeleton-loader>
+                </div>
+                <div class="jobs-container mb-4">
+                    <ngx-skeleton-loader count="2" [theme]="{'height':'32px', 'width':'102px'}"></ngx-skeleton-loader>
+                </div>
+            </div>
+        </div>
+        <div class="row actors-container">
+            <div class="col-12">
+                <p class="main-title-style mb-4">
+                    Elenco original
+                </p>
+            </div>
+            <div class="col" *ngIf="!isMobile">
+                <ngx-skeleton-loader class="space-between-skeleton" count="6" [theme]="{'height':'300px', 'width':'180px'}"></ngx-skeleton-loader>
+            </div>
+            <div class="col" *ngIf="isMobile">
+                <ngx-skeleton-loader count="1" [theme]="{'height':'300px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
+            </div>
+        </div>
+        <div class="row trailer-container mt-5">
+            <div class="col-12">
+                <p class="main-title-style">
+                    Trailer
+                </p>
+            </div>
+            <ng-container class="col" *ngIf="!isMobile">
+                <ngx-skeleton-loader count="1" [theme]="{'height':'500px', 'width':'900px'}"></ngx-skeleton-loader>
+            </ng-container>
+            <ng-container class="col" *ngIf="isMobile">
+                <ngx-skeleton-loader count="1" [theme]="{'height':'216px', 'width':'372px'}"></ngx-skeleton-loader>
+            </ng-container>
+        </div>
+        <div class="row recomendations-container mt-5">
+            <div class="col-12 mb-2">
+                <p class="main-title-style">
+                    Recomendações
+                </p>
+            </div>
+            <div class="col" *ngIf="!isMobile">
+                <ngx-skeleton-loader class="space-between-skeleton" count="6" [theme]="{'height':'300px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
+            </div>
+            <div class="col" *ngIf="isMobile">
+                <ngx-skeleton-loader count="1" [theme]="{'height':'300px', 'width':'180px', 'margin-top':'36px'}"></ngx-skeleton-loader>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-5 justify-content-center" *ngIf="!loader">
+        <div class="row info-container">
+            <div class="col-7 col-md-4" >
+                <img class="img-style" [src]="url + movie?.poster_path" alt="movie poster">
+            </div>
+            <div [ngClass]="{'d-flex-column': isMobile, 'd-flex-row': !isMobile }" 
+                 class="col mt-5 mt-md-0 d-flex-row movie-info-container">
+                <div>
+                    <p class="title-style">
+                        {{movie?.title}}
+                    </p>
+                </div>
+                <ng-container *ngIf="!isMobile">
+                    <p class="subtitle-style">
+                        {{certificationAge?certificationAge + ' anos • ':''}}{{releaseDate + ' •'}} <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name + ' •')}}</span> {{movie?.runtime + ' min'}}
+                    </p>
+                </ng-container>
+                <ng-container *ngIf="isMobile">
+                    <ul class="subtitle-style">
+                        <li>
+                            {{certificationAge?certificationAge + ' anos':''}} 
+                        </li>
+                        <li>
+                            {{releaseDate + ' (BR)'}} 
+                        </li>
+                        <li>
+                            <span *ngFor="let genre of movie?.genres">{{(genre !== movie.genres[movie.genres.length - 1]?genre?.name + ', ':genre?.name)}}</span>
+                        </li>
+                        <li>
+                            {{movie?.runtime + ' min'}}
+                        </li>
+                    </ul>
+                </ng-container>
+                <div class="d-flex align-items-center">
+                    <div class="spinner-container d-flex align-items-center">
+                        <mat-progress-spinner
+                            [value]="calcAverage('', movie?.vote_average)">
+                        </mat-progress-spinner>
+                        <div class="percentage-container">
+                            <p>{{calcAverage('divide', movie?.vote_average) | percent}}</p>
+                        </div>
+                    </div>
+                    <div class="evaluation-container">
+                        <p class="evaluation-style">
+                            Avaliação dos usuários
                         </p>
                     </div>
-                    <div>
-                        <p class="job-style">
-                            {{credit?.job}}
-                        </p>
+                </div>
+                <div>
+                    <p class="resume-title-style mb-2">
+                        Sinopse
+                    </p>
+                </div>
+                <div>
+                    <p class="resume-style" *ngIf="movie.overview">
+                        {{movie?.overview}}
+                    </p>
+                </div>
+                <div>
+                    <p class="resume-style" *ngIf="!movie.overview">
+                        Ops, ainda estamos trabalhando para traduzir essa sinopse para você!
+                    </p>
+                </div>
+                <div class="d-flex flex-wrap mt-md-0 justify-content-between justify-content-md-start mt-5 credits-container">
+                    <div class="jobs-container mb-4" *ngFor="let credit of crewArray">
+                        <div>
+                            <p class="name-style">
+                                {{credit?.name}}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="job-style">
+                                {{credit?.job}}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -216,7 +199,7 @@
                     Trailer
                 </p>
             </div>
-            <ng-template class="col" *ngIf="!isMobile">
+            <ng-container class="col" *ngIf="!isMobile">
                 <youtube-player 
                     videoId="{{trailerKey}}" 
                     suggestedQuality="highres" 
@@ -225,8 +208,8 @@
                     [startSeconds]="1"
                     class="video-style">
                 </youtube-player>
-            </ng-template>
-            <ng-template class="col" *ngIf="isMobile">
+            </ng-container>
+            <ng-container class="col" *ngIf="isMobile">
                 <youtube-player 
                     videoId="{{trailerKey}}" 
                     suggestedQuality="highres" 
@@ -235,7 +218,7 @@
                     [startSeconds]="1"
                     class="video-style">
                 </youtube-player>
-            </ng-template>
+            </ng-container>
             <div class="col" *ngIf="!trailerKey">
                 <p class="subtitle-style text-start ">
                     Este filme não possui um trailer oficial.

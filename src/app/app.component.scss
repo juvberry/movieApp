@@ -9,6 +9,15 @@
             $white 450px,
             $white 100%
         );
+
+        @media (max-width:425px) {
+            background: linear-gradient(
+            $primary-color 0px,
+            $primary-color 536px,
+            $white 536px,
+            $white 100%
+            );
+        }
     }
 
     &.home-details{

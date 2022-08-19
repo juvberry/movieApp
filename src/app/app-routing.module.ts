@@ -6,7 +6,6 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full',
     data: {
       isParent: true
     }
@@ -17,6 +16,10 @@ const routes: Routes = [
     data: {
       isParent: false
     }
+  },
+  {
+    path: '?page=:page',
+    redirectTo: '/',
   }
 ];
 

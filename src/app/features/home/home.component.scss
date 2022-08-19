@@ -1,6 +1,24 @@
 @import '../../../styles/to-rem.scss';
 @import '../../../styles/variables.scss';
 
+.skeleton-center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-skeleton{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.space-between-skeleton{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .background-container{
     background: linear-gradient(
         $primary-color 0px,
@@ -43,6 +61,7 @@
             padding-left: toRem(16);
         }
     }
+
     .filter-title-style{
         color: $white;
         font-size: toRem(14);
@@ -113,14 +132,35 @@
         height: toRem(32);
         line-height: toRem(20);
     }
-    
+
+    &.btn-selected{
+        background-color: $selected-color;
+        color: $white;
+        
+        & mat-icon{
+            color: $white;
+        }
+
+        &.btn-remove-filter{
+            background-color: transparent;
+            color: white;
+        }
+    }
+
 }
 
-.btn-style:focus{
-    background-color: $selected-color;
-    color: $white;
-    
-    & mat-icon{
-        color: $white;
-    }
+
+.btn-remove-filter{
+    background-color: $primary-color;
+    color: white;
+    border: 1px solid white;
+    font-weight: 300;
+    opacity: 76%;
+    border-radius: 6px;
+}
+
+.btn-remove-filter:hover{
+    background-color: white;
+    color: $primary-color;
+    opacity: 78%;
 }

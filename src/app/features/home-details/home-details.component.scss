@@ -5,6 +5,13 @@
     line-height: toRem(24);
 }
 
+.space-between-skeleton{
+    display: flex;
+    justify-content: space-between;
+}
+.info-container{
+    min-height: 956px;
+}
 .main-title-style{
     font-size: toRem(28);
     font-weight: 700;
@@ -85,6 +92,10 @@
         .job-style{
             font-size: toRem(14);
             line-height: toRem(20);
+        }
+
+        @media (max-width:425px) {
+            width: toRem(136);
         }
     }
     

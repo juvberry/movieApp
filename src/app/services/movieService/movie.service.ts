@@ -42,4 +42,10 @@ export class MovieService {
   getGenreList():Observable<any>{
     return this.http.get(environment.api_url + '/genre/movie/list' + environment.authKey + environment.localLang)
   }
+
+  // se o array tiver um cara só, nao precisa colocar nada
+  getMovieByGenre(genreIdList:Array<Number>):Observable<any>{
+    let string = JSON.stringify(genreIdList).replace('[','').replace(']','')
+    return this.http.get(environment.api_url + 'discover/movie' + environment.authKey + environment.localLang + '&sort_by=popularity.desc&with_genres=' + string)
+  }
 }

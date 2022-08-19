@@ -24,7 +24,7 @@ export class HomeDetailsComponent implements OnInit {
           this.getMovieId()
         }
       })
-      window.scroll(0,0);
+      
   }
 
   isMobile:any = false;
@@ -41,7 +41,6 @@ export class HomeDetailsComponent implements OnInit {
   movieId:any = null
   reco:any = true
   url:string = 'https://image.tmdb.org/t/p/w500'
-  // [theme]="{'background-color': '#e9defc', 'opacity': '0.5', 'margin-top':'10px', 'border': '2px solid #FFF'}"
 
   ngOnInit(): void {
     this.isMobileScreen()
@@ -67,6 +66,7 @@ export class HomeDetailsComponent implements OnInit {
       setTimeout(()=>{
         this.movie = res
         this.loader = false
+        window.scroll(0,0);
       }, 3000)
     })
   }

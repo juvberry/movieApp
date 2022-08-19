@@ -48,7 +48,7 @@ const MaterialModules = [
     MaterialModules,
     RouterModule,
     YouTubePlayerModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule.forRoot({animation: 'progress', appearance: 'line'}),
   ],
   exports: [
     MaterialModules,
